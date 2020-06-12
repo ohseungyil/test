@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자</title>
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+</head>
+<body>
+<style>
+.go_rmargin1{margin-right: 10px;}
+
+.list_box{width: 1720px; height: auto; margin: 0 auto;}
+.cont_topbox{width: 100%; height: auto; margin: 50px 0;}
+.reset_box{width: 100%; height: auto; text-align: right;}
+.reset_btn{padding: 10px 30px; border: 1px solid #b6b6b6; border-radius: 5px; box-shadow: 1px 2px 3px rgba(0,0,0,0.1); font-family: "Noto Sans KR", sans-serif;}
+.reset_btn:hover{background: #8ed8d5; border: 1px solid #8ed8d5; color: #fff;}
+.reset_btn:focus{background: #8ed8d5; border: 1px solid #8ed8d5; color: #fff; outline: none;}
+.search_box{display: table; width: 100%; height: auto; margin: 20px 0; border: 1px solid #e7e7e7; border-radius: 5px;}
+.search_row{display: table-row; width: 100%; height: auto;}
+.search_td{display: table-cell;}
+.search_title{width: 200px; margin-right: 10px; padding: 30px 10px; letter-spacing: -0.5px; font-size: 14px; font-weight: 500; color: #333; background: #ececec;}
+.selbox{width: 200px; border: 1px solid #b6b6b6; border-radius: 5px; padding: 10px 15px; font-size: 14px; font-family: "Noto Sans KR", sans-serif; box-sizing: border-box;}
+.txt_putbox{width: 1100px; border: 1px solid #b6b6b6; border-radius: 5px; padding: 13px 25px; font-size: 14px; box-sizing: border-box;}
+.txt_putbox::placeholder{font-family: "Noto Sans KR", sans-serif; color: #aaaaaa;}
+.ok_btn{padding: 12px 50px; border-radius: 5px; letter-spacing: -0.5px; font-size: 14px; font-weight: 400; font-family: "Noto Sans KR", sans-serif; color: #fff; background: #00B5AD; box-sizing: border-box;} 
+.ok_btn:hover{background: #009c95;}
+
+.ct_listtbl{width: 100%; height: auto;}
+.one_tbl{width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1); border-collapse: collapse; border-radius: 5px;}
+.one_th{padding: 15px 0; border: 1px solid rgba(0,0,0,0.1); letter-spacing: -0.5px; font-size: 14px; font-weight: 500; color: #333; background: #ececec;}
+.tr_effect:hover{background: #8ed8d5; color: #fff;}
+.tr_effect:hover .one_td{color: #fff;}
+.one_td{padding: 15px 0; border: 1px solid rgba(0,0,0,0.1); text-align: center; letter-spacing: -0.5px; font-size: 14px; font-weight: 400; color: #333; }
+.page_td{padding: 15px 0; text-align: center;}
+.paging_ul{width: 100%; height: 50px; margin: 0 auto;}
+.paging_li{float: left;}
+.page_number{display: inline-block; box-sizing: border-box; padding: 10px 15px; border: 1px solid rgba(0,0,0,0.1); font-size: 14px; font-weight: 400; color: #333;}
+.page_number i{font-size: 12px;}
+.page_number.active{background: #8ed8d5; color: #fff;}
+.page_number:hover{background: #8ed8d5; color: #fff;}
+.page_number:hover i{color: #fff;}
+</style>
+    <div class="all_box">
+        <header>
+            <div class="hd_gnb">
+                <ul class="gnb_ul">
+                    <li class="gnb_li b_rightline">
+                        <a href="./index.html" class="logo_link">Logo</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="./list.html" class="menu_link">Admin Account</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="#" class="menu_link">The Group</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="#" class="menu_link">Inquiries</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="#" class="menu_link">FAQ</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="#" class="menu_link">Recruitment</a>
+                    </li>
+                    <li class="gnb_li b_rightline">
+                        <a href="#" class="menu_link">Terms and Announcements</a>
+                    </li>
+                    <li class="gnb_li2 message_box">
+                        <p class="welcome_txt">Hello. manager admin.</p>
+                    </li>
+                    <li class="gnb_li2">
+                        <a href="#" class="log_btn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="sub_hd">
+            <div class="subhd_list">
+                <a href="./index.html" class="first_link"><i class="fa fa-home" aria-hidden="true"></i></a>
+                <span class="hd_arrow"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                <span class="now_page">list page</span>
+            </div>
+            <div class="sub_info">
+                <p class="info_text">* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ratione laudantium quos voluptates id? Libero reiciendis, exercitationem, laudantium rerum iste quidem obcaecati, magni eaque dolorum doloremque amet quo fuga labore?</p>
+            </div>
+        </div>
+        <div class="list_box">
+            <!-- cont_topbox start -->
+            <div class="cont_topbox">
+                <form name="" id="" method="post" action="#">
+                    <div class="reset_box">
+                        <button type="button" name="" id="" class="reset_btn">Reset</button>
+                    </div>
+                    <div class="search_box">
+                        <div class="search_row">
+                            <div class="search_td">
+                                <p class="search_title">Search</p>
+                            </div>
+                            <div class="search_td">
+                                <select name="" id="" class="selbox go_rmargin1">
+                                    <option value="sel1">All</option>
+                                    <option value="sel2">id</option>
+                                    <option value="sel3">name</option>
+                                    <option value="sel4">date</option>
+                                </select>
+                                <input type="text" name="" id="" class="txt_putbox go_rmargin1" placeholder="Search...">
+                                <button type="" name="" id="" class="ok_btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cont_topbox end -->
+
+            <div class="ct_listtbl">
+                <table class="one_tbl">
+                    <thead>
+                        <tr>
+                            <th class="one_th">No.</th>
+                            <th class="one_th">Name</th>
+                            <th class="one_th">ID</th>
+                            <th class="one_th">Email</th>
+                            <th class="one_th">Phone number</th>
+                            <th class="one_th">Date created</th>
+                            <th class="one_th">ID Used or Not</th>
+                            <th class="one_th">Duplicate Login</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr_effect">
+                            <td class="one_td">20</td>
+                            <td class="one_td">홍길동</td>
+                            <td class="one_td">Admin</td>
+                            <td class="one_td">abd@example.com</td>
+                            <td class="one_td">+82 01012345678</td>
+                            <td class="one_td">09-06-2020 00:00:00</td>
+                            <td class="one_td">Y</td>
+                            <td class="one_td">Prohibit</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="page_td" colspan="8">
+                                <a href="#" class="page_number"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+                                <a href="#" class="page_number active">1</a>
+                                <a href="#" class="page_number">2</a>
+                                <a href="#" class="page_number">3</a>
+                                <a href="#" class="page_number">4</a>
+                                <a href="#" class="page_number">5</a>
+                                <a href="#" class="page_number"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
