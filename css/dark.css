@@ -1,0 +1,245 @@
+body {
+	color: #f7faff;
+	background-color: #191919;
+}
+
+#mode-toggler{
+  cursor: default;
+	border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #fff;
+  background-image: url('../images/dark_on.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* header,
+footer {
+	background-color: #252526;
+} */
+
+.header-description {
+	color: #aaa;
+}
+
+.btn:hover {
+	color: #152121;
+}
+
+pre {
+	background-color:#252526;
+	-webkit-box-shadow: 9999px 0 0 0 #252526;
+	box-shadow: 9999px 0 0 0 #252526;
+}
+
+code {
+	color: #ddd;
+}
+header .top_hd{background-color: #282a30 !important;}
+header .change_box{background-color: #1c1e22 !important; border-bottom: 1px solid #222222 !important;}
+header .change_box ul li p{color: #f7faff;}
+.top_coinbox{background: #1c1e22 !important; border-bottom: 1px solid #1f1f1f;}
+.coinbox .coin_top{background-color: #282a30 !important; border-color: #171616 !important;}
+.coinbox .coin_top li .L_text{color: #e9edf9;}
+.coinbox .coin_top li .S_text{color: #e9edf9;}
+.coin_select{
+  border: 1px solid #171616 !important; 
+  background-color: #1f1f1f !important; 
+  color: #f7faff !important;
+  background-image: url('../images/drop_btn4.png') !important; /* 화살표 모양의 이미지 */ 
+}
+.pie_text{background: #000 !important; border-color: #000 !important;}
+
+.menu_click {
+  background-image: url('../images/Dmenu_close.png') !important;
+}
+.menu_click.on {
+  background-image: url('../images/Dmenu_open.png') !important;
+}
+.left_gnbWrap{border-right: 1px solid #000 !important; background: #1c1e22 !important;}
+.menu_top{border-bottom-color: #333 !important;}
+.menu_top p{color: #ccc !important;}
+.menu_top p a:before{
+  background-image: url('../images/Dclose.png') !important;
+}
+.asset_text{color: #909090 !important;}
+
+.ass_sel{
+  border-color: #444 !important;
+  background-color: #1c1e22 !important;
+  color: #eee !important;
+  background-image: url('../images/drop_btn5.png') !important; /* 화살표 모양의 이미지 */ 
+}
+.assets_all{border-bottom: 1px solid #666 !important; color: #eee;}
+.assets_all .ass_num{background: #303030 !important;  color: #fff !important;}
+.left_gnb>li>a{color: #eee !important;}
+.left_gnb>li>ul>li>a{border-bottom: 1px solid #2a2a2a !important; color: #bbb !important;}
+.left_gnb>li>ul>li>a:hover{background: #24272c !important; color: #017cfd !important;}
+.depth1_menu{border-bottom: 1px solid #444 !important;}
+.left_gnb>li>ul>li>a:hover:after{
+  background-image: url('../images/meun_hover2.png') !important;
+}
+.depth1_menu:before {
+  background-image: url('../images/drop_btn4.png') !important;
+}
+
+
+.chart_name{color: #f1f1f1;}
+.chart_name a:before{
+  background-image: url('../images/detail_icon2.png') !important;
+}
+.message_box{color: #282a30 !important;}
+.chart_colum ul li .chart_category{color: #a7a7b2;}
+.mid_line{color: #313131 !important;}
+.chart_colum ul li .chart_num{background: #303030 !important; color: #fff !important;}
+.chart_box{border-color: #444 !important;}
+.chart_box:hover{box-shadow: 0px 24px 36px 0 rgba(255, 255, 255, 0.1) !important; background-color: #161616 !important;}
+.chart_detail{
+  background-color: none !important;
+  background-image: url('../images/Dmti_watermark.png') !important;
+}
+.chart_day{color: #f1f1f1 !important;}
+.chart_day option{color: #a5a6b3 !important; background: #313131; border: none;}
+
+.chart_tbl .chart_ul .chart_li{border-top-color: #017cfd !important;}
+.chart_box .chart_detail .chart_chkbox ul li > a:focus
+.chart_box .chart_detail .chart_chkbox ul li > a:hover,
+.chart_box .chart_detail .chart_chkbox ul li > a:active,
+.chart_box .chart_detail .chart_chkbox ul li > a.active{color: #fff !important; background: #747581 !important;}
+.time_btn{background: #333 !important; color: #a7a7b2 !important;}
+.time_btn:hover{color: #fff !important; background: #747581 !important;}
+.loading{
+  border: 2px solid transparent !important;
+  border-color: transparent #eee transparent #eee !important;
+}
+#loading-text{color: #f1f1f1 !important;}
+
+footer{background: #1c1e22 !important;}
+.copy_box ul li a{color: #909090;}
+.mid_line2{color: #666 !important;}
+.lang_sel{color: #ccc;}
+.copy_box ul li p{color: #666 !important;}
+.copy_box ul li a{color: #aaa !important;}
+.copy_box ul li a:before{
+  background-image: url('../images/mail_icon2.png') !important;
+}
+
+
+/* chart_상세페이지 */
+.filter_a{border-color: #444 !important; background-color: #1c1e22 !important; color: #aaa !important;}
+.label_title{color: #a7a7b2 !important;}
+.average_sel{background: #1c1e22 !important; border-color: #444 !important; color: #eee;}
+.interval_sel{background: #1c1e22 !important; border-color: #444 !important; color: #eee;}
+.average_sel, .interval_sel{ 
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+  -moz-appearance: none; 
+  appearance: none;
+  background-image: url('../images/drop_btn4.png') !important; /* 화살표 모양의 이미지 */ 
+  background-repeat: no-repeat !important;
+  background-position: 88% 50% !important;
+} 
+
+.switch{border-color: #444 !important; background: #1c1e22 !important;}
+.switch-label{color: #909090 !important;}
+.switch-selection{background: #333 !important; border-color: #81818b !important;}
+.switch-input:checked + .switch-label{color: #eee !important;}
+
+.chart_name2{color: #fff !important;}
+.message_box3{color: #282a30 !important;}
+.daterangepicker{background-color: #191919 !important; border-color: #444 !important;}
+.daterangepicker .calendar-table{background-color: #191919 !important; border-color: #191919 !important;}
+.daterangepicker .calendar-table .next span{
+  background-image: url('../images/Dcal_next.png') !important;
+}
+.daterangepicker .calendar-table .prev span{
+  background-image: url('../images/Dcal_prev.png') !important;
+}
+.daterangepicker td.available:hover, .daterangepicker th.available:hover{
+  background-color: #282a30 !important;
+  color: #eee !important;
+}
+.daterangepicker .calendar-table tr:nth-child(1) th{border-bottom: 1px solid #444 !important;}
+.daterangepicker .drp-calendar.left .calendar-table table tr:nth-child(2) th:last-child, .daterangepicker .drp-calendar.left .calendar-table table tr td:last-child{
+  border-right: 1px solid #444 !important;
+}
+.daterangepicker .drp-calendar.left .calendar-table table tr:last-child td{
+  border-bottom: 1px solid #444 !important;
+}
+.daterangepicker .calendar-table td{color: #ccc !important;}
+.daterangepicker td.in-range{background-color: #282a30 !important;}
+.daterangepicker th.month{color: #eee !important;}
+.daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date{
+  background-color: #191919 !important;
+  color: #303030 !important;
+}
+.daterangepicker td.active, .daterangepicker td.active:hover{
+  background-image: none !important;
+  background-color: #252525 !important;
+  color: #eee !important;
+}
+
+.chart_date{background: #1c1e22 !important; border-color: #444 !important; color: #ddd !important;}
+.chart_sel > a{color: #f3f6f8 !important;}
+.c_selUL{background: #313131 !important;}
+.c_selUL > li{color: #a5a6b3;}
+.c_selUL > li:hover{color: #017cfd !important;}
+
+.detail_bigbox{
+  border-color: #444 !important; 
+  background-color: #191919 !important;
+  background-image: url('../images/Dmti_watermark2.png') !important;
+}
+.top_chkbox ul li label{color: #797979 !important;}
+.chart_chk:checked + label{color: #dddddd !important;}
+.capcuter_btn:before{
+  background-image: url('../images/photo_icon2.png') !important;
+}
+
+
+.share_box ul li{background: #1c1e22 !important; border-color: #444 !important;}
+.large_line{background-color: #444 !important;}
+.down_click{color: #aaa !important;}
+.down_click:hover{
+  text-shadow: -1px 0 #444444, 0 1px #444444, 1px 0 #444444, 0 -1px #444444 !important;
+  -moz-text-shadow: -1px 0 #444444, 0 1px #444444, 1px 0 #444444, 0 -1px #444444 !important;
+  -webkit-text-shadow: -1px 0 #444444, 0 1px #444444, 1px 0 #444444, 0 -1px #444444 !important;  
+}
+.share_link:before{
+  background-image: url('../images/copy_off2.png') !important;
+}
+.facebook_link:before{
+  background-image: url('../images/facebook_off2.png') !important;
+}
+.twitter_link:before{
+  background-image: url('../images/twitter_off2.png') !important;
+}
+.share_link:hover:before{
+  background-image: url('../images/copy_on2.png') !important;
+}
+.facebook_link:hover:before{
+  background-image: url('../images/facebook_on2.png') !important;
+}
+.twitter_link:hover:before{
+  background-image: url('../images/twitter_on2.png') !important;
+}
+.down_click:before{
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  margin-right: 5px;
+  background-image: url('../images/download_off.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  vertical-align: sub;
+}
+.down_click:hover:before{
+  background-image: url('../images/download_on2.png') !important;
+}
+
+@media(max-width: 1024px){
+  .menu_top{background-color: #282a30 !important;}
+
+  /* chart 상세페이지 */
+  .detail_chk{background-color: #1c1e22 !important;}
+}

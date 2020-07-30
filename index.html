@@ -3,199 +3,1480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>관리자</title>
+    <title>MytradingInfo</title>
     <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/font-ubuntu.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
+
+    <!-- select 이미지드롭박스 링크 -->
+    <!-- <link rel="stylesheet" href="./css/dd.css">
+    <script type="text/javascript" src="./js/jquery.dd.min.js"></script> -->
+
+    <!-- 다크모드 css 끌고오기 -->
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="light.css">
+    </noscript>
+
+    <!-- bxslide 슬라이드 css/js -->
+    <link rel="stylesheet" href="./css/jquery.bxslider.css">
+    <script type="text/javascript" src="./js/jquery.bxslider.js"></script>
+
+    <!-- daterangepicker 날짜 css/js -->
+    <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/daterangepicker.css" />
+
+    <!--  socket.io가 서버 기동 시에 socket.io.js 라이브러리를 자동 생성 -->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="/js/websocket.js"></script>
 </head>
 <body>
-    <div class="all_box">
-        <!-- header start -->
-        <header>
-            <div class="hd_gnb">
-                <ul class="gnb_ul">
-                    <li class="gnb_li b_rightline">
-                        <a href="./index.html" class="logo_link">Logo</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="./list.html" class="menu_link">Admin Account</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="#" class="menu_link">The Group</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="#" class="menu_link">Inquiries</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="#" class="menu_link">FAQ</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="#" class="menu_link">Recruitment</a>
-                    </li>
-                    <li class="gnb_li b_rightline">
-                        <a href="#" class="menu_link">Terms and Announcements</a>
-                    </li>
-                    <li class="gnb_li2 message_box">
-                        <p class="welcome_txt">Hello. manager admin.</p>
-                    </li>
-                    <li class="gnb_li2">
-                        <a href="#" class="log_btn">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- header end -->
+  <div class="All_box">
+    <header>
+      <div class="top_hd">
+        <div class="main_header">
 
-        <!-- sub_hd start -->
-        <div class="sub_hd">
-            <div class="subhd_list">
-                <a href="./index.html" class="first_link"><i class="fa fa-home" aria-hidden="true"></i></a>
-                <span class="hd_arrow"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
-                <span class="now_page">Dashboard</span>
+          <div class="menu_list m_menubtn">
+            <a href="#" class="menu_click">
+              <img src="./images/mobile/buger_menu.png">
+            </a>
+          </div>
+
+          <div class="brand_logo">
+            <a href="./index.html">
+              <img src="./images/hd_logo.png">
+            </a>
+          </div>
+
+          <div class="mode_box">
+            <div class="toggle_box">
+              <button id="mode-remover" class="light_on theme_btn hidden">
+              </button>
+              <button id="mode-toggler" class="dark_on theme_btn">
+              </button>
             </div>
-            <div class="sub_info">
-                <p class="info_text">* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ratione laudantium quos voluptates id? Libero reiciendis, exercitationem, laudantium rerum iste quidem obcaecati, magni eaque dolorum doloremque amet quo fuga labore?</p>
-            </div>
+          </div>
         </div>
-        <!-- sub_hd end -->
+      </div>
+      <div class="change_box">
+        <ul>
+          <li>
+            <p class="bitcoin">
+              <img src="./images/bitcoin.png">
+              <span class="bitcoin_title">Bitcoin</span>
+              <span class="Mbtc_title">BTC</span>
+              <span class="normal_price" id="current_price">$9,427.16</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h Change</span>
+              <span class="green_text" id="change_rate">47.13 +0.50%</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h High</span>
+              <span class="normal_price" id="high_price">9,450.00</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h Low</span>
+              <span class="normal_price" id="low_price">9,277.09</span>
+            </p>
+          </li>
+          <li class="R_margin">
+            <p class="change">
+              <span class="time_text">Market Cap</span>
+              <span class="normal_price" id="market_cap">$272,648,1796.09</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </header>
 
-        <!-- content_box start -->
-        <div class="content_box">
-            <div class="left_content">
-                <div class="middle_box">
-                    <p class="cont_title">Inquiry Status</p>
-                    <p class="cont_subtitle">Inquiries</p>
-                    <div class="cont_tbl">
-                        <ul class="cont_ul">
-                            <li class="cont_li">
-                                <div class="cont_box">
-                                    <p class="count_title">NEW</p>
-                                    <p class="count_number">10</p>
-                                </div>
-                            </li>
-                            <li class="cont_li">
-                                <div class="cont_box">
-                                    <p class="count_title">Complete</p>
-                                    <p class="count_number">99+</p>
-                                </div>
-                            </li>
-                            <li class="cont_li">
-                                <div class="cont_box end_rmagin">
-                                    <p class="count_title">Total</p>
-                                    <p class="count_number">10</p>
-                                </div>
-                            </li>
+    <section class="top_coinbox">
+      <div class="coin_mid" id="coin_mid" onload="coin_load();">
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/bitmex.png" class="C_bitmex"></li>
+            <li class="coin_selbox">
+              <select name="" id="" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text">Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom">
+            <li>
+              <p class="long_price green_text" name="long_open_interest">123.123.201,352</p>
+              <p class="long_percent green_text" name="long_change_rate">20.81%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">123.123.206,901</p>
+              <p class="low_percent red_text" name="short_change_rate">79.19%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart1"></div>
+            <div class="pie_text short_bg">
+              <img src="./images/down_short.png">  <!-- url 변경하기 -->
+              <p class="red_text LS_text" name="position">Short</p>
+              <p class="red_text LS_val" name="volume">5.54K</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/binance.png"></li>
+            <li class="coin_selbox">
+              <select name="" id="market_info_BNC" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text" >Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom" id="market_info_BNC">
+            <li>
+              <!--
+                id="market_info_BNC_long"
+              <p class="long_price green_text" name="long_open_interest">134,543</p>
+              -->
+              <p class="long_price green_text" name="long_open_interest" id="market_info_BNC_long">12.123.134,543</p>
+              <p class="long_percent green_text" name="long_change_rate">55.43%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">11.123.132,542</p>
+              <p class="low_percent red_text" name="short_change_rate">44.57%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart2"></div>
+            <div class="pie_text long_bg">
+              <img src="./images/up_long.png">  <!-- url 변경하기 -->
+              <p class="green_text LS_text" name="position">Long</p>
+              <p class="green_text LS_val" name="volume">2.02K</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/bybit.png"></li>
+            <li class="coin_selbox">
+              <select name="" id="" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text">Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom">
+            <li>
+              <p class="long_price green_text" name="long_open_interest">64,760</p>
+              <p class="long_percent green_text" name="long_change_rate">47.88%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">70,491</p>
+              <p class="low_percent red_text" name="short_change_rate">52.12%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart3"></div>
+            <div class="pie_text short_bg">
+              <img src="./images/down_short.png">   <!-- url 변경하기 -->
+              <p class="red_text LS_text" name="position">Short</p>
+              <p class="red_text LS_val" name="volume">5.73K</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (태블릿, 모바일) 코인박스 슬라이드 -->
+      <div class="respon_coinbox">
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/bitmex.png" class="C_bitmex"></li>
+            <li class="coin_selbox">
+              <select name="" id="" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text">Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom">
+            <li>
+              <p class="long_price green_text" name="long_open_interest">123.123.201,352</p>
+              <p class="long_percent green_text" name="long_change_rate">20.81%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">123.123.206,901</p>
+              <p class="low_percent red_text" name="short_change_rate">79.19%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart1"></div>
+            <div class="pie_text short_bg">
+              <img src="./images/down_short.png">  <!-- url 변경하기 -->
+              <p class="red_text LS_text" name="position">Short</p>
+              <p class="red_text LS_val" name="volume">5.54K</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/binance.png"></li>
+            <li class="coin_selbox">
+              <select name="" id="market_info_BNC" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text" >Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom" id="market_info_BNC">
+            <li>
+              <!--
+                id="market_info_BNC_long"
+              <p class="long_price green_text" name="long_open_interest">134,543</p>
+              -->
+              <p class="long_price green_text" name="long_open_interest" id="market_info_BNC_long">123.123.134,543</p>
+              <p class="long_percent green_text" name="long_change_rate">55.43%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">123.123.132,542</p>
+              <p class="low_percent red_text" name="short_change_rate">44.57%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart2"></div>
+            <div class="pie_text long_bg">
+              <img src="./images/up_long.png">  <!-- url 변경하기 -->
+              <p class="green_text LS_text" name="position">Long</p>
+              <p class="green_text LS_val" name="volume">2.02K</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="coinbox">
+          <ul class="coin_top">
+            <li><img src="./images/bybit.png"></li>
+            <li class="coin_selbox">
+              <select name="" id="" class="coin_select">
+                <option value="300">5m</option>
+                <option value="600">10m</option>
+                <option value="900">15m</option>
+                <option value="1800">30m</option>
+                <option value="3600">1h</option>
+                <option value="7200">2h</option>
+                <option value="14400">4h</option>
+                <option value="43200">12h</option>
+              </select>
+            </li>
+            <li>
+              <p class="L_text">Long</p>
+            </li>
+            <li>
+              <p class="S_text">Short</p>
+            </li>
+          </ul>
+          <ul class="coin_bottom">
+            <li>
+              <p class="long_price green_text" name="long_open_interest">64,760</p>
+              <p class="long_percent green_text" name="long_change_rate">47.88%</p>
+            </li>
+            <li>
+              <p class="low_price red_text" name="short_open_interest">70,491</p>
+              <p class="low_percent red_text" name="short_change_rate">52.12%</p>
+            </li>
+          </ul>
+          <div class="LS_piebox">
+            <div class="pie-chart3"></div>
+            <div class="pie_text short_bg">
+              <img src="./images/down_short.png">   <!-- url 변경하기 -->
+              <p class="red_text LS_text" name="position">Short</p>
+              <p class="red_text LS_val" name="volume">5.73K</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="chart_menubox">
+        <div class="gnb_box">
+          <div class="menu_list pc_menubtn">
+            <a href="#" class="menu_click"></a>
+          </div>
+          <div class="m_mark"></div>
+          <nav class="left_gnbWrap">
+            <div class="menu_top">
+              <p>
+                Chart list 
+                <a href="#" class="close"></a>
+              </p>
+            </div>
+            <div class="menu_box1">
+              <div class="asset_box">
+                <p class="asset_text">Assets</p>
+                <select id="asset_list_selbox" class="ass_sel">
+                  <option value="0" data-image="./images/bitcoin.png"> BTC&nbsp;|&nbsp;USD</option>
+                  <option value="1" data-image="./images/bitcoin.png"> coming soon</option>
+                </select>
+                <a href="./index.html">
+                  <p class="assets_all">
+                    <img src="./images/all_icon.png">
+                    All <span class="ass_num">9</span>
+                  </p>
+                </a>
+              </div>
+            </div>
+            <ul class="left_gnb">
+              <li>
+                  <a href="#" class="depth1_menu">Factor list</a>
+                  <ul>
+                      <li><a href="#" class="depth2_menu">Open Interest (BitMEX)</a></li>
+                      <li><a href="#" class="depth2_menu">ETHUSD</a></li>
+                      <li><a href="#" class="depth2_menu">Nasdaq 100 f CFD</a></li>
+                      <li><a href="#" class="depth2_menu">Crypto Fear & Greed Index</a></li>
+                      <li><a href="#" class="depth2_menu">Google trend (BTC)</a></li>
+                      <li><a href="#" class="depth2_menu">Gold f CFD</a></li>
+                      <li><a href="#" class="depth2_menu">Difficulty</a></li>
+                      <li><a href="#" class="depth2_menu">Hash ratesdgsdsdsgs</a></li>
+                      <li><a href="#" class="depth2_menu">Wallet (Balance >= 1)</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="chart_colum">
+          <ul>
+            <li>
+              <p class="chart_category">BTC<span class="mid_line">|</span>USD</p>
+            </li>
+            <li>
+              <p class="chart_num">9</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart_tbl">
+        <ul class="chart_ul">
+          <!-- Open Interest (BitMEX) -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="./chart_detail.html" class="message_link">
+                <p class="chart_name">
+                  Open Interest (BitMEX)
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="loading-container">
+                    <div class="loading"></div>
+                    <div id="loading-text">loading</div>
+                  </div>
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn active">1D</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(5m)</a>
+                        <ul class="c_selUL">
+                          <li value="1min">1min</li>
+                          <li value="5min">5min</li>
+                          <li value="30min">30min</li>
+                          <li value="1hour">1hour</li>
+                          <li value="4hour">4hour</li>
+                          <li>1days</li>
                         </ul>
+                        <!-- <select name="" id="" class="chart_day">
+                          <option value="">1min</option>
+                          <option value="">5min</option>
+                          <option value="">30min</option>
+                          <option value="">1hour</option>
+                          <option value="">4hour</option>
+                          <option value="">1month</option>
+                        </select> -->
+                      </div>
                     </div>
-                    <div class="more_box">
-                        <a href="#" class="more_btn">More &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
                 </div>
+              </div>
             </div>
-            <div class="right_content">
-                <div class="middle_box">
-                    <p class="cont_title">Job Vacnancy Announcements</p>
-                    <p class="cont_subtitle">Jobs</p>
-                    <ul class="cont_ul">
-                        <li class="cont_li">
-                            <div class="cont_box2">
-                                <p class="count_title">Newcomer</p>
-                                <p class="count_number">00</p>
-                            </div>
-                        </li>
-                        <li class="cont_li">
-                            <div class="cont_box2">
-                                <p class="count_title">Experienced</p>
-                                <p class="count_number">99+</p>
-                            </div>
-                        </li>
-                        <li class="cont_li">
-                            <div class="cont_box2">
-                                <p class="count_title">Intern</p>
-                                <p class="count_number">10</p>
-                            </div>
-                        </li>
-                        <li class="cont_li">
-                            <div class="cont_box2 end_rmagin">
-                                <p class="count_title">Total</p>
-                                <p class="count_number">10</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="more_box">
-                        <a href="#" class="more_btn">More &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- content_box end -->
+          </li>
 
-        <!-- content_chk start -->
-        <div class="content_chk">
-            <div class="content_mid">
-                <p class="cont_title">Register All / Announce Changes</p>
-                <p class="cont_subtitle">The recent Changes are updated in real-time.</p>
-                <div class="time_chkul">
-                    <ul class="chk_ul">
-                        <li class="chk_li">
-                            <div class="list_chkbox">
-                                <p class="list_chktxt">Register FAQ</p>
-                                <p class="list_idchk">Admin101</p>
-                                <p class="list_timechk">
-                                    <span class="time_number">Just now</span><br>
-                                    <i class="fa fa-history" aria-hidden="true"></i>
-                                </p>
-                                <p class="list_realtime">10-03-2020 00:00:00</p>
-                            </div>
-                        </li>
-                        <li class="chk_li">
-                            <div class="list_chkbox">
-                                <p class="list_chktxt">Register FAQ</p>
-                                <p class="list_idchk">Admin101</p>
-                                <p class="list_timechk">
-                                    <span class="time_number">1hours</span>ago<br>
-                                    <i class="fa fa-history" aria-hidden="true"></i>
-                                </p>
-                                <p class="list_realtime">10-03-2020 00:00:00</p>
-                            </div>
-                        </li>
-                        <li class="chk_li">
-                            <div class="list_chkbox">
-                                <p class="list_chktxt">Register FAQ</p>
-                                <p class="list_idchk">Admin101</p>
-                                <p class="list_timechk">
-                                    <span class="time_number">10minute</span>ago<br>
-                                    <i class="fa fa-history" aria-hidden="true"></i>
-                                </p>
-                                <p class="list_realtime">10-03-2020 00:00:00</p>
-                            </div>
-                        </li>
-                        <li class="chk_li">
-                            <div class="list_chkbox">
-                                <p class="list_chktxt">Register FAQ</p>
-                                <p class="list_idchk">Admin101</p>
-                                <p class="list_timechk">
-                                    <span class="time_number">3days</span>ago<br>
-                                    <i class="fa fa-history" aria-hidden="true"></i>
-                                </p>
-                                <p class="list_realtime">10-03-2020 00:00:00</p>
-                            </div>
-                        </li>
-                        <li class="chk_li">
-                            <div class="list_chkbox end_rmagin">
-                                <p class="list_chktxt">Register FAQ</p>
-                                <p class="list_idchk">Admin101</p>
-                                <p class="list_timechk">
-                                    <span class="time_number">1weeks</span>ago<br>
-                                    <i class="fa fa-history" aria-hidden="true"></i>
-                                </p>
-                                <p class="list_realtime">10-03-2020 00:00:00</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+          <!-- ETHUSD -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="./chart_detail.html" class="message_link">
+                <p class="chart_name">
+                  ETHUSD
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
             </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn active">1D</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(5m)</a>
+                        <ul class="c_selUL">
+                          <li>1min</li>
+                          <li>5min</li>
+                          <li class="time_thr">30min</li>
+                          <li>1hour</li>
+                          <li>4hour</li>
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <!-- Nasdq 100 f CFD -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="./chart_detail.html" class="message_link">
+                <p class="chart_name">
+                  Nasdq 100 f CFD
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn active">1D</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(5m)</a>
+                        <ul class="c_selUL">
+                          <li>1min</li>
+                          <li>5min</li>
+                          <li class="time_thr">30min</li>
+                          <li>1hour</li>
+                          <li>4hour</li>
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Crypto Fear & Greed Index -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Crypto Fear & Greed Index
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn active">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(1d)</a>
+                        <ul class="c_selUL">
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Google Trend (BTC) -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Google Trend (BTC)
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn active">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(1d)</a>
+                        <ul class="c_selUL">
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <!-- Glod f CFD -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Glod f CFD
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn active">1D</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(5m)</a>
+                        <ul class="c_selUL">
+                          <li>1min</li>
+                          <li>5min</li>
+                          <li class="time_thr">30min</li>
+                          <li>1hour</li>
+                          <li>4hour</li>
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Difficulty -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Difficulty
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn active">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(1d)</a>
+                        <ul class="c_selUL">
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Hash rate -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Hash rate
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn active">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(1d)</a>
+                        <ul class="c_selUL">
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Wallet (balance >=1) -->
+          <li class="chart_li">
+            <div class="chart_title">
+              <a href="#" class="message_link">
+                <p class="chart_name">
+                  Wallet (balance >=1)
+                  <span class="message_box">
+                    View full chart
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="chart_box">
+              <div class="chart_detail">
+                <div class="chart_chkbox">
+                  <div class="chart_chktime">
+                    <ul class="day_chkbox">
+                      <li>
+                        <a herf="#" class="time_btn">1W</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">1M</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn active">1Y</a>
+                      </li>
+                      <li>
+                        <a herf="#" class="time_btn">ALL</a>
+                      </li>
+                    </ul>
+                    <div class="chart_selbox">
+                      <div class="chart_sel">
+                        <span class="month_txt">interval</span>
+                        <a href="#" class="click_Cday">(1d)</a>
+                        <ul class="c_selUL">
+                          <li>1days</li>
+                          <li>1week</li>
+                          <li>1month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct_viewbox"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot_box">
+        <div class="copy_box">
+          <ul>
+            <li><p>COPYRIGHTS &copy; 2020 MytradingInfo</p></li>
+            <li><span class="mid_line2">|</span></li>
+            <li><a href="">CONTACT US</a></li>
+          </ul>
         </div>
-        <!-- content_chk end -->
+        <div class="language_box">
+          <select name="" id="" class="lang_sel">
+            <option value="eng">English / USD</option>
+          </select>
+        </div>
+      </div>
+    </footer>
+
+    <div class="chatbot_box">
+      <a href="#">
+        <img src="./images/chatbot.png">
+      </a>
+      <span class="message_box2">
+        What Can I Help Yo With?
+      </span>
     </div>
+  </div>
+
+
+  <script src="./js/darkmode.min.js"></script>
+  <script>
+    // 메인 차트 데이터 간격 드롭다운 박스 클릭 시 값 가져오기
+    $(function(){
+      $(".chart_sel > a").click(function() {
+        $(this).next("ul").toggle();
+        return false;
+      });
+      
+      $(".chart_sel > ul > li").click(function() {
+          // var time_str = ($(this).text().substr(0,2));
+          // var time_str2 = ($('.chart_sel > ul > li:eq(2)').text().substr(0,3));
+          //var t_inter = null
+          //console.log(time_str2);
+
+          // var save_time = ($(this).val());
+
+          // if(val.length==2){
+          //   save_time = val.substr(0,2);
+          // }else if(val.length==3){
+          //   save_time = val.substr(0,3);
+          // }else{
+          //   save_time = val.substr(0,2)
+          // }
+          // console.log(save_time);
+
+
+          // var save_time = ($(this).text());
+          
+          // if(save_time.length==2){
+          //   save_time = $(this).parent().fadeOut(200).prev().text("("+ save_time.substr(0,2) +")");
+          // }else if(save_time.length==3){
+          //   save_time = $(this).parent().fadeOut(200).prev().text("("+ save_time.substr(0,3) +")");
+          // }else{
+          //   save_time = $(this).parent().fadeOut(200).prev().text("("+ save_time.substr(0,2) +")");
+          // }
+          // console.log(save_time);
+
+          var save_time2 = ($(this).text().replace(/[^0-9]/g,''));
+          var save_time_val =($(this).text().replace(/[0-9]/g, ""));
+
+          if (save_time_val=='min'){
+            $(this).parent().fadeOut(200).prev().text("("+save_time2+"m)")
+          }else if (save_time_val=='hour'){
+            $(this).parent().fadeOut(200).prev().text("("+save_time2+"h)")
+          }else if (save_time_val=='month'){
+            $(this).parent().fadeOut(200).prev().text("("+save_time2+"m)")
+          }else if(save_time_val=='days'){
+            $(this).parent().fadeOut(200).prev().text("("+save_time2+"d)")
+          }else if(save_time_val=='week'){
+            $(this).parent().fadeOut(200).prev().text("("+save_time2+"w)")
+          }
+
+          console.log('save_time2',save_time2)
+          console.log('save_time_val',save_time_val)
+
+
+          //$(this).parent().fadeOut(200).parent(".chart_sel").children("a").text("("+ time_str +")");
+          // $(this).parent().fadeOut(200).prev().text("("+ time_str +")");
+          //$(this).parent().fadeOut(200).next().text("("+ time_str +")");
+          //$(this).parent().fadeOut(200).prev().text("("+ time_str2 +")");
+          // $(this).parent().fadeOut(200).next().text("("+ time_str2 +")");
+          //$('.chart_sel > a').parent().siblings().text("("+ time_str +")");
+          //$('.chart_sel > a').parent().siblings().find('.c_selUL .time_thr').text("("+ time_str2 +")");
+      });
+    });
+
+    $('.chart_day').click(function(){
+      var $ch_target = document.getElementsByClassName("chart_day");
+      var Cday_str = $('.chart_day option:selected').text().substr(0,2);
+      var Cday_str2 = $('.chart_day option:eq(2):selected').text().substr(0,3);
+      //Cday_str.substr(0,2);
+      console.log(Cday_str);
+      console.log(Cday_str2);
+
+      $(".chart_day").text("("+ Cday_str +")");
+    });
+
+    //메인 대시보드 차트 박스 드롭다운 박스 외 다른 영역 클릭시 사라짐
+    $(document).on('click', function(e){
+      if(e.target.className==".c_selUL"){
+        return false;
+      }
+      $('.c_selUL').stop().fadeOut(200);
+    });
+
+    //메뉴 코인 셀렉트 박스
+    // $(function(){
+    //   $('.ass_sel').msDropDown();
+    // });
+
+    $(document).ready(function(){
+        mobile_menu(); 
+    });
+
+    function mobile_menu(){
+        var $menu = null;
+        var $left_gnb = null;
+        var $depth1_wrap = null;
+        var $depth1 = null;
+        var $depth1_btn = null;
+        
+        function start(){
+            init();
+            init_event();
+        }
+
+        function init(){
+            $menu = $('.menu_click');
+            $left_gnb = $('.left_gnbWrap');
+            $depth1_wrap = $('.left_gnb>li');
+            $depth1 = $depth1_wrap.children('ul');
+            $depth1_btn = $depth1_wrap.children('a');
+        }
+        /* 이벤트 함수 */
+        function init_event(){
+            
+            /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+            $menu.click(function(event){
+                event.preventDefault();
+
+                if($(this).hasClass("on")) {
+                    $(this).addClass("off").removeClass("on");
+                    $left_gnb.removeClass('on')
+                    $('.m_mark').removeClass('on')
+                } else {
+                    $(this).addClass("on").removeClass("off");
+                    $left_gnb.addClass('on')
+                    $('.m_mark').addClass('on')
+                }
+            });
+            
+            /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+            $('.close').click(function(event){
+                event.preventDefault();
+
+                // $left_gnb.removeClass('on');
+                // $menu.css({
+                //   backgroundImage : 'url("./images/menu_close.png")'
+                // });
+                $('.m_mark').removeClass('on')
+
+                if($menu.hasClass("on")) {
+                    $menu.addClass("off").removeClass("on");
+                    $left_gnb.removeClass('on')
+                } else {
+                    $menu.addClass("on").removeClass("off");
+                    $left_gnb.addClass('on')
+                }
+                //x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+                // setTimeout(function(){
+                //     $depth1_btn.removeClass('on');
+                //     $depth1.slideUp();
+                // },300)
+            });
+            
+            /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+            $depth1_btn.addClass('on');
+            $depth1_btn.click(function(event){
+                event.preventDefault();
+                var $this = $(this);
+                var $this_ul = $this.siblings('ul');
+
+                var check = $this.hasClass('on');
+                if(check){
+                    $this.removeClass('on');
+                    $this_ul.stop(true,true).slideUp();
+                }else{
+                    $depth1_btn.removeClass('on');
+                    $depth1.stop().slideUp();
+                    $this.addClass('on');
+                    $this_ul.stop(true,true).slideDown();
+                }
+            });
+            
+            /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+            // $(window).resize(function(){
+            //     $left_gnb.removeClass('on');
+            // });
+        }
+        
+        start(); // 시작 호출
+    }
+
+    //반응형 페이지 coinbox 슬라이드 리사이즈
+    // $(window).resize(function(){ 
+    //   if($(window).width() <1024){ 
+    //     $('.coin_mid').bxSlider({
+    //       mode: 'horizontal',
+    //       speed: 300,
+    //       pager: true,
+    //       infiniteLoop: false,
+    //       hideControlOnEnd: true,
+    //       // responsive: true,
+    //       auto: false,
+    //       minSlides: 1,
+    //       maxSlides: 1,
+    //     });
+    //   }else{
+    //     location.reload();
+    //   }
+    // });
+
+    // $(window).resize(function(){
+    //   var win_size = window.outerWidth;
+
+
+    //   if(win_size <= 1040){
+    //     slider=$('.coin_mid').bxSlider({
+    //       mode: 'horizontal',
+    //       speed: 300,
+    //       pager: true,
+    //       infiniteLoop: false,
+    //       hideControlOnEnd: true,
+    //       responsive: true,
+    //       auto: false,
+    //       minSlides: 1,
+    //       maxSlides: 1,
+    //       touchEnabled: true,
+    //       aruaLive: true,
+    //     });
+    //   }else{
+    //     slider.destroySlider();
+    //     function coin_load(){  
+    //       $("#coin_mid").load(window.location.href + "#coin_mid");
+    //     }
+    //   }
+    // });
+
+    //   $(document).ready(function(){
+    //     var bx_winWidth = 1024;
+    //     var bxousel;
+    //     var bx_box = {
+    //       mode: 'horizontal',
+    //       speed: 300,
+    //       pager: true,
+    //       infiniteLoop: false,
+    //       hideControlOnEnd: true,
+    //       responsive: true,
+    //       auto: false,
+    //       minSlides: 1,
+    //       maxSlides: 1,
+    //       touchEnabled: true,
+    //       aruaLive: true,
+    //     }
+
+    //     if($(window).width() < bx_winWidth){
+    //       bxousel = $('.event-bxousel').bxSlider(bx_box);
+    //     };
+    //     jQuery(window).resize(function() {
+    //     if( jQuery(window).width() < bx_winWidth) {
+    //       bxousel = jQuery('.event-bxousel').bxSlider(bx_box);
+    //     } else {
+    //       //bxousel.destroySlider();
+    //     }
+    // });
+      // })
+
+    // $(function(){
+    //   var bx_box = window.matchMedia("screen and (max-width: 1024px)");
+
+    //   if(bx_box.matches){
+    //     $('.coin_mid').bxSlider({
+    //       mode: 'horizontal',
+    //       speed: 300,
+    //       pager: true,
+    //       infiniteLoop: false,
+    //       hideControlOnEnd: true,
+    //       responsive: true,
+    //       auto: false,
+    //       minSlides: 1,
+    //       maxSlides: 1,
+    //       touchEnabled: true,
+
+    //       // onSliderLoad: function(){
+    //       //   $('.coin_mid').reloadSlider();
+    //       // }
+    //     });
+    //     // function reload_slide(){
+    //     //   $('#coin_mid').load(window.location.href + "#coin_mid");
+    //     // }
+    //   }else{
+    //     window.onresize=function(){
+    //       if (self.name != 'reload') {
+    //         self.name = 'reload';
+    //         self.location.reload(true);
+    //       }
+    //       else self.name = ''; 
+    //     }
+    //     // window.onresize=function(){
+    //     //   document.location.reload();
+    //     // }
+    //     //window.location.reload();
+    //     //window.width(1024).location.reload();
+    //     //$('.coin_mid').window.location.reload();
+    //   }
+    // });
+
+    // $(window).on("resize",function(e){
+    //   checkSlidesize();
+    // });
+    // checkSlidesize();
+    
+    // function checkSlidesize(){
+    //   slider = $(".coin_mid").bxSlider({
+    //     mode: 'horizontal',
+    //     speed: 300,
+    //     pager: true,
+    //     infiniteLoop: false,
+    //     hideControlOnEnd: true,
+    //     responsive: true,
+    //     auto: false,
+    //     minSlides: 1,
+    //     maxSlides: 1,
+    //   });
+    //   var newWindowsize = $(window).width();
+    //   if(newWindowsize >= 1024){
+    //     slider.destroySlider();
+    //   }
+    // }
+
+    //반응형 페이지 coinbox 슬라이드 & 리사이즈 window
+    $(function(){
+      var sliderActive = false;
+      var slider;
+
+      function windSizeslide(){
+        slider = $('.coin_mid').bxSlider({
+          mode: 'horizontal',
+          speed: 300,
+          pager: true,
+          infiniteLoop: false,
+          hideControlOnEnd: true,
+          responsive: true,
+          auto: false,
+          minSlides: 1,
+          maxSlides: 1,
+          adaptiveHeight: false,
+          swipeThreshold: 40,
+        });
+        return true;
+      }
+
+      $(document).ready(function(){
+        if(window.innerWidth < 1024){
+          sliderActive = windSizeslide();
+        }
+      });
+
+      $(window).resize(function(){
+        if(window.innerWidth <= 1024 && sliderActive == false){
+          sliderActive = windSizeslide();
+        }else if(window.innerWidth >= 1024 && sliderActive == true){
+          slider.destroySlider();
+          sliderActive = false;
+        }
+      });
+    });
+    //반응형 페이지 coinbox 슬라이드
+    // $(document).ready(function(){
+    //   $('.respon_coinbox').bxSlider({
+    //     mode: 'horizontal',
+    //     speed: 300,
+    //     pager: true,
+    //     infiniteLoop: false,
+    //     hideControlOnEnd: true,
+    //     // responsive: true,
+    //     auto: false,
+    //     minSlides: 1,
+    //     maxSlides: 1,
+    //   });
+    // });
+
+    // 차트 시간버튼 active
+    $(function(){
+      $('.day_chkbox li a').on('click', function(){
+        $(this).addClass('active');
+        $(this).parent().siblings().find('a').removeClass('active');
+      });
+    })
+
+    // bitmex 원형차트
+    $(window).ready(function(){
+      var i=1;
+      var func1 = setInterval(function(){
+        if(i<80){
+          bit_color1(i);
+          i++;
+        } else if(i<70){
+          bit_color2(i);
+          i++;
+        } else if(i<110){
+          bit_color3(i);
+          i++;
+        } else {
+          clearInterval(func1);
+        }
+      },10);
+    });
+    function bit_color1(i){
+      $(".pie-chart1").css({
+        "background":"conic-gradient(#f76b73 0% "+i+"%, #ffffff "+i+"% 100%)"
+      });   
+    }
+    function bit_color2(i){
+      $(".pie-chart1").css({
+        "background":"conic-gradient(#f76b73 0% 80%, #04c288 80% "+i+"%, #ffffff "+i+"% 100%)"
+      });
+    }
+    function bit_color3(i){
+      $(".pie-chart1").css({
+        "background":"conic-gradient(#f76b73 0% 80%, #04c288 80% 15%, #04c288 15% "+i+"%, #ffffff "+i+"% 100%)"
+      });
+    }
+
+    // binance 원형차트
+    $(window).ready(function(){
+      var bin_i=1;
+      var binance = setInterval(function(){
+        if(bin_i<40){
+          bin_color1(bin_i);
+          bin_i++;
+        } else if(bin_i<70){
+          bin_color2(bin_i);
+          bin_i++;
+        } else if(bin_i<110){
+          bin_color3(bin_i);
+          bin_i++;
+        } else {
+          clearInterval(binance);
+        }
+      },10);
+    });
+    function bin_color1(bin_i){
+      $(".pie-chart2").css({
+        "background":"conic-gradient(#f76b73 0% "+bin_i+"%, #ffffff "+bin_i+"% 100%)"
+      });   
+    }
+    function bin_color2(bin_i){
+      $(".pie-chart2").css({
+        "background":"conic-gradient(#f76b73 0% 42%, #04c288 42% "+bin_i+"%, #ffffff "+bin_i+"% 100%)"
+      });
+    }
+    function bin_color3(bin_i){
+      $(".pie-chart2").css({
+        "background":"conic-gradient(#f76b73 0% 42%, #04c288 42% 55%, #04c288 55% "+bin_i+"%, #ffffff "+bin_i+"% 100%)"
+      });
+    }
+
+    // bybit 원형차트
+    $(window).ready(function(){
+      var by_i=1;
+      var bybit = setInterval(function(){
+        if(by_i<60){
+          by_color1(by_i);
+          by_i++;
+        } else if(by_i<70){
+          by_color2(by_i);
+          by_i++;
+        } else if(by_i<110){
+          by_color3(by_i);
+          by_i++;
+        } else {
+          clearInterval(bybit);
+        }
+      },10);
+    });
+    function by_color1(by_i){
+      $(".pie-chart3").css({
+        "background":"conic-gradient(#f76b73 0% "+by_i+"%, #ffffff "+by_i+"% 100%)"
+      });   
+    }
+    function by_color2(by_i){
+      $(".pie-chart3").css({
+        "background":"conic-gradient(#f76b73 0% 52%, #04c288 52% "+by_i+"%, #ffffff "+by_i+"% 100%)"
+      });
+    }
+    function by_color3(by_i){
+      $(".pie-chart3").css({
+        "background":"conic-gradient(#f76b73 0% 52%, #04c288 52% 47%, #04c288 47% "+by_i+"%, #ffffff "+by_i+"% 100%)"
+      });
+    }
+
+    // Plugin Initialization
+    var options = {
+			light: './css/light.css',
+			dark: './css/dark.css',
+    }
+    var DarkMode = new DarkMode(options)
+
+    // Remove mode from LocalStorage if button clicked
+    var ModeRemover = document.getElementById('mode-remover')
+    ModeRemover.onclick = function() {
+      DarkMode.clearSavedMode()
+      changeTogglerText()
+      getModeRemoverState()
+    }
+
+    // Detects mode on LocalStorage, if `true` – display a button
+    getModeRemoverState()
+    function getModeRemoverState() {
+      if(DarkMode.isModeSaved())
+        ModeRemover.classList.remove('hidden')
+      else
+        ModeRemover.classList.add('hidden')
+    }
+    
+    // Function for `mode-toggler` button
+    var ModeToggler = document.getElementById('mode-toggler')
+    changeTogglerText()
+	  ModeToggler.onclick = function() {
+      DarkMode.toggleMode()
+      changeTogglerText()
+    }
+
+    // Function for `mode-toggler` button
+    var Modelight = document.getElementById('mode-remover')
+    changeTogglerText()
+	  Modelight.onclick = function() {
+      DarkMode.toggleMode()
+      changeTogglerText()
+    }
+    
+    // Changes `mode-toggler` text on mode changing
+    function changeTogglerText() {
+      getModeRemoverState()
+      var currentMode = DarkMode.getMode()
+      ModeToggler.textContent = currentMode === 'light'  ? '' : ''
+    }
+
+    // 다크 모드 & 라이트 모드 상단 코인 이미지 변경
+    $(function(){
+      $('.dark_on').click(function(){
+        $(".C_bitmex").attr("src","./images/bitmex2.png");
+      });
+      $('.light_on').click(function(){
+        $(".C_bitmex").attr("src","./images/bitmex.png");
+      });
+
+      if($('body').hasClass('dm-dark')){
+        console.log('dark');
+        $(".C_bitmex").attr("src","./images/bitmex2.png");
+      }else{
+        console.log('light');
+        $(".C_bitmex").attr("src","./images/bitmex.png");
+      }
+    });
+  </script>
 </body>
 </html>

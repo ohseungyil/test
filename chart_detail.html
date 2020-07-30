@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MytradingInfo</title>
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/font-ubuntu.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
+
+    <!-- select 이미지드롭박스 링크 -->
+    <!-- <link rel="stylesheet" href="./css/dd.css">
+    <script type="text/javascript" src="./js/jquery.dd.min.js"></script> -->
+
+    <!-- 다크모드 css 끌고오기 -->
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="light.css">
+    </noscript>
+
+    <!-- bxslide 슬라이드 css/js -->
+    <link rel="stylesheet" href="./css/jquery.bxslider.css">
+    <script type="text/javascript" src="./js/jquery.bxslider.js"></script>
+
+    <!-- daterangepicker 날짜 css/js -->
+    <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/daterangepicker.css" />
+</head>
+<body>
+  <div class="All_box">
+    <header>
+      <div class="top_hd">
+        <div class="main_header">
+          <div class="menu_list m_menubtn">
+            <a href="#" class="menu_click">
+              <img src="./images/mobile/buger_menu.png">
+            </a>
+          </div>
+
+          <div class="brand_logo">
+            <a href="./index.html">
+              <img src="./images/hd_logo.png">
+            </a>
+          </div>
+          <div class="mode_box">
+            <div class="toggle_box">
+              <button id="mode-remover" class="light_on theme_btn hidden">
+              </button>
+              <button id="mode-toggler" class="dark_on theme_btn">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="change_box">
+        <ul>
+          <li>
+            <p class="bitcoin">
+              <img src="./images/bitcoin.png">
+              <span class="bitcoin_title">Bitcoin</span>
+              <span class="Mbtc_title">BTC</span>
+              <span class="normal_price">$9,427.16</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h Change</span>
+              <span class="green_text">47.13 +0.50%</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h High</span>
+              <span class="normal_price">9,450.00</span>
+            </p>
+          </li>
+          <li>
+            <p class="change">
+              <span class="time_text">24h Low</span>
+              <span class="normal_price">9,277.09</span>
+            </p>
+          </li>
+          <li class="R_margin">
+            <p class="change">
+              <span class="time_text">Market Cap</span>
+              <span class="normal_price">$272,648,1796.09</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="container">
+      <div class="chart_menubox">
+        <div class="gnb_box">
+          <div class="menu_list pc_menubtn">
+            <a href="#" class="menu_click"></a>
+          </div>
+          <div class="m_mark"></div>
+          <nav class="left_gnbWrap">
+            <div class="menu_top">
+              <p>
+                Chart list 
+                <a href="#" class="close"></a>
+              </p>
+            </div>
+            <div class="menu_box1">
+              <div class="asset_box">
+                <p class="asset_text">Assets</p>
+                <select name="" id="" class="ass_sel">
+                  <option value="0" data-image="./images/bitcoin.png"> BTC&nbsp;|&nbsp;USD</option>
+                  <option value="1" data-image="./images/bitcoin.png"> coming soon</option>
+                </select>
+                <a href="./index.html">
+                  <p class="assets_all">
+                    <img src="./images/all_icon.png">
+                    All <span class="ass_num">9</span>
+                  </p>
+                </a>
+              </div>
+            </div>
+            <ul class="left_gnb">
+              <li>
+                  <a href="#" class="depth1_menu">Factor list</a>
+                  <ul>
+                      <li><a href="#" class="depth2_menu">Open Interest (BitMEX)</a></li>
+                      <li><a href="#" class="depth2_menu">ETHUSD</a></li>
+                      <li><a href="#" class="depth2_menu">Nasdaq 100 f CFD</a></li>
+                      <li><a href="#" class="depth2_menu">Crypto Fear & Greed Index</a></li>
+                      <li><a href="#" class="depth2_menu">Google trend (BTC)</a></li>
+                      <li><a href="#" class="depth2_menu">Gold f CFD</a></li>
+                      <li><a href="#" class="depth2_menu">Difficulty</a></li>
+                      <li><a href="#" class="depth2_menu">Hash ratesdgsdsdsgs</a></li>
+                      <li><a href="#" class="depth2_menu">Wallet (Balance >= 1)</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="chart_titleM">
+            <p class="chart_name2">
+              Open Interest (BitMEX)
+              <a href="#" class="message_link">
+                <img src="./images/view_info.png">
+              </a>
+              <span class="message_box3">
+                The figures indicate search interest relative to the highest point on the chart based on a specific region 
+                and time period. Values appear as 100 for search terms with the highest search frequency, 
+                50 for search terms with half the search frequency, and 0 if there is not enough data for the search term.
+              </span>
+            </p>
+          </div>
+        </div>
+        <!-- 차트 상세페이지 태블릿 필터 -->
+        <div class="filter_box tab_filter">
+          <a href="#" class="filter_a">Filter</a>
+        </div>
+        <div class="detail_chk">
+          <form action="#">
+            <ul>
+              <li>
+                <p class="label_title">Moving Average</p>
+                <select name="" id="" class="average_sel">
+                  <option value="Vsel1">0 Days</option>
+                  <option value="Vsel7">7 Days</option>
+                  <option value="Vsel14">14 Days</option>
+                  <option value="Vsel30">30 Days</option>
+                  <option value="Vsel50">50 Days</option>
+                  <option value="Vsel90">90 Days</option>
+                </select>
+              </li>
+              <li>
+                <p class="label_title">Scale</p>
+                <div class="switch">
+                  <input type="radio" class="switch-input" name="view_chart" id="view_line" checked>
+                  <label for="view_line" class="switch-label switch-label-off">Linear</label>
+                  <input type="radio" class="switch-input" name="view_chart" id="view_log">
+                  <label for="view_log" class="switch-label switch-label-on">Log</label>
+                  <span class="switch-selection"></span>
+                </div>
+              </li>
+              <li>
+                <p class="label_title">Interval</p>
+                <select name="" id="" class="interval_sel">
+                  <option value="">1 Min</option>
+                  <option value="">5 Min</option>
+                  <option value="">30 Min</option>
+                  <option value="">1 Hour</option>
+                  <option value="">4 Hour</option>
+                  <option value="">1 Day</option>
+                </select>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+
+      <form action="#">
+        <div class="chart_view">
+          <div class="chart_head">
+            <div class="chart_title2">
+              <p class="chart_name2">
+                Open Interest (BitMEX)
+                <a href="#" class="message_link">
+                  <img src="./images/view_info.png">
+                </a>
+                <span class="message_box3">
+                  The figures indicate search interest relative to the highest point on the chart based on a specific region 
+                  and time period. Values appear as 100 for search terms with the highest search frequency, 
+                  50 for search terms with half the search frequency, and 0 if there is not enough data for the search term.
+                </span>
+              </p>
+            </div>
+            <div class="chart_calendar">
+              <input type="text" name="daterange" value="" class="chart_date" />
+            </div>
+            <!-- 차트 상세페이지 모바일 필터 -->
+            <div class="filter_box M_filter">
+              <a href="#" class="filter_a">Filter</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="detail_bigbox">
+          <div class="chart_bigbox">
+            <div class="top_chkbox">
+              <ul>
+                <li>
+                  <input type="checkbox" class="chart_chk" id="chk_cryp" checked>
+                  <label for="chk_cryp"><span class="yellow_c"></span>Crypto Fear & Greed Index</label>
+                  <input type="checkbox" class="chart_chk" id="chk_btc" checked>
+                  <label for="chk_btc"><span class="gray_c"></span>BTCUSD</label>
+                </li>
+                <li>
+                  <button type="button" class="capcuter_btn">
+                    <!-- <img src="./images/photo_icon.png"> -->
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="chart_bigview"></div>
+          </div>
+        </div>
+
+        <div class="share_box">
+          <ul class="share_ul">
+            <li class="share_li">
+              <ul class="sns_box">
+                <li class="sns_libox">
+                  <a href="#" class="share_link"></a>
+                </li>
+                <li>
+                  <span class="large_line"></span>
+                </li>
+                <li class="sns_libox">
+                  <a href="#" class="twitter_link"></a>
+                </li>
+                <li>
+                  <span class="large_line"></span>
+                </li>
+                <li class="sns_libox">
+                  <a href="#" class="facebook_link"></a>
+                </li>
+              </ul>
+            </li>
+            <li class="share_li">
+              <a href="#" class="down_click">Download CSV</a>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </section>
+    <footer>
+      <div class="foot_box">
+        <div class="copy_box">
+          <ul>
+            <li><p>COPYRIGHTS &copy; 2020 MytradingInfo</p></li>
+            <li><span class="mid_line2">|</span></li>
+            <li><a href="">CONTACT US</a></li>
+          </ul>
+        </div>
+        <div class="language_box">
+          <select name="" id="" class="lang_sel">
+            <option value="eng">English / USD</option>
+          </select>
+        </div>
+      </div>
+    </footer>
+
+    <div class="chatbot_box">
+      <a href="#">
+        <img src="./images/chatbot.png">
+      </a>
+      <span class="message_box2">
+        What Can I Help Yo With?
+      </span>
+    </div>
+  </div>
+  <script src="./js/darkmode.min.js"></script>
+  <script>
+    //태블릿, 모바일 filter 버튼 드롭다운
+    $(function(){
+      $('.filter_a').click(function(){
+        $('.detail_chk').toggle();
+        if($('.filter_a').hasClass('on')){
+          $('.filter_a').removeClass('on')
+        }else{
+          $('.filter_a').addClass('on')
+        }
+      });
+    });
+
+    // $(function(){
+    //   $('.ass_sel').msDropDown();
+    // });
+
+    $(document).ready(function(){
+        mobile_menu(); 
+    });
+
+    function mobile_menu(){
+        var $menu = null;
+        var $left_gnb = null;
+        var $depth1_wrap = null;
+        var $depth1 = null;
+        var $depth1_btn = null;
+        
+        function start(){
+            init();
+            init_event();
+        }
+
+        function init(){
+            $menu = $('.menu_click');
+            $left_gnb = $('.left_gnbWrap');
+            $depth1_wrap = $('.left_gnb>li');
+            $depth1 = $depth1_wrap.children('ul');
+            $depth1_btn = $depth1_wrap.children('a');
+        }
+        /* 이벤트 함수 */
+        function init_event(){
+            
+            /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+            $menu.click(function(event){
+                event.preventDefault();
+
+                if($(this).hasClass("on")) {
+                    $(this).addClass("off").removeClass("on");
+                    $left_gnb.removeClass('on')
+                    $('.m_mark').removeClass('on')
+                } else {
+                    $(this).addClass("on").removeClass("off");
+                    $left_gnb.addClass('on')
+                    $('.m_mark').addClass('on')
+                }
+            });
+            
+            /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+            $('.close').click(function(event){
+                event.preventDefault();
+
+                // $left_gnb.removeClass('on');
+                // $menu.css({
+                //   backgroundImage : 'url("./images/menu_close.png")'
+                // });
+                $('.m_mark').removeClass('on')
+                
+                if($menu.hasClass("on")) {
+                    $menu.addClass("off").removeClass("on");
+                    $left_gnb.removeClass('on')
+                } else {
+                    $menu.addClass("on").removeClass("off");
+                    $left_gnb.addClass('on')
+                }
+
+                //x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+                // setTimeout(function(){
+                //     $depth1_btn.removeClass('on');
+                //     $depth1.slideUp();
+                // },300)
+            });
+            
+            /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+            $depth1_btn.addClass('on');
+            $depth1_btn.click(function(event){
+                event.preventDefault();
+                var $this = $(this);
+                var $this_ul = $this.siblings('ul');
+
+                var check = $this.hasClass('on');
+                if(check){
+                    $this.removeClass('on');
+                    $this_ul.stop(true,true).slideUp();
+                }else{
+                    $depth1_btn.removeClass('on');
+                    $depth1.stop().slideUp();
+                    $this.addClass('on');
+                    $this_ul.stop(true,true).slideDown();
+                }
+            });
+            
+            /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+            // $(window).resize(function(){
+            //     $left_gnb.removeClass('on');
+            // });
+        }
+        
+        start(); // 시작 호출
+    }
+
+    // =========================== daterangpicker js ===========================
+    $(function(){
+      $('.chart_date').daterangepicker({
+        drops: 'down',
+        linkedCalendars: true,
+        alwaysShowCalendars: true,
+        showWeekNumbers: false,
+        autoApply: true,
+        language: 'auto',
+        opens: 'left',
+        showDropdowns: true,
+        showShortcuts:false,
+        shortcuts:{
+          // 'prev-days': [1,3,5,7],
+          // 'next-days': [3,5,7],
+          // 'prev' : ['week','month','year'],
+          // 'next' : ['week','month','year']
+        },
+        period: ('day' | 'week' | 'month' | 'quarter' | 'year'),
+        maxYear: 3000,
+        locale: {
+            format: 'DD-MM-YYYY',
+            separator: " ~ ",
+            daysOfWeek: [
+              "S",
+              "M",
+              "T",
+              "W",
+              "T",
+              "F",
+              "S"
+            ],
+        },
+        startDate: new Date(new Date().getTime() - (60*60*24*14*1000)),
+        endDate: new Date
+      })
+    });
+
+    // ===========================darkmode js===========================
+    // Plugin Initialization
+    var options = {
+			light: './css/light.css',
+			dark: './css/dark.css',
+    }
+    var DarkMode = new DarkMode(options)
+
+    // Remove mode from LocalStorage if button clicked
+    var ModeRemover = document.getElementById('mode-remover')
+    ModeRemover.onclick = function() {
+      DarkMode.clearSavedMode()
+      changeTogglerText()
+      getModeRemoverState()
+    }
+
+    // Detects mode on LocalStorage, if `true` – display a button
+    getModeRemoverState()
+    function getModeRemoverState() {
+      if(DarkMode.isModeSaved())
+        ModeRemover.classList.remove('hidden')
+      else
+        ModeRemover.classList.add('hidden')
+    }
+    
+    // Function for `mode-toggler` button
+    var ModeToggler = document.getElementById('mode-toggler')
+    changeTogglerText()
+	  ModeToggler.onclick = function() {
+      DarkMode.toggleMode()
+      changeTogglerText()
+    }
+
+    // Function for `mode-toggler` button
+    var Modelight = document.getElementById('mode-remover')
+    changeTogglerText()
+	  Modelight.onclick = function() {
+      DarkMode.toggleMode()
+      changeTogglerText()
+    }
+    
+    // Changes `mode-toggler` text on mode changing
+    function changeTogglerText() {
+      getModeRemoverState()
+      var currentMode = DarkMode.getMode()
+      ModeToggler.textContent = currentMode === 'light'  ? '' : ''
+    }
+  </script>
+</body>
+</html>
